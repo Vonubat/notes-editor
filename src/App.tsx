@@ -1,3 +1,4 @@
+import { Textarea } from 'components';
 import { Background } from 'components/ui';
 import { Header } from 'layout';
 import React from 'react';
@@ -7,6 +8,7 @@ export const App = (): JSX.Element => {
     <div className="App">
       <Header />
       <Background />
+      <Textarea />
     </div>
   );
 };
