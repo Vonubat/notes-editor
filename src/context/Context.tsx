@@ -28,10 +28,10 @@ const initialValue: IState = {
   tags: [],
 };
 
-const stateReducer = (state: IState, action: Actions): IState => {
-  switch (action.type) {
+const stateReducer = (state: IState, { type, payload }: Actions): IState => {
+  switch (type) {
     case 'create_note':
-      return { ...state, notes: [...state.notes, action.payload] };
+      return { ...state, notes: [...state.notes, payload] };
     default:
       throw new Error(`Unknown action type`);
   }
@@ -46,6 +46,8 @@ export const ContextProvider = ({ children }: MyProps): JSX.Element => {
     stateReducer,
     initialValue
   );
+
+  console.log(state);
 
   return (
     <ContextState.Provider

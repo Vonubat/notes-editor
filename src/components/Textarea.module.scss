@@ -40,6 +40,11 @@
   cursor: pointer;
   transition: all 0.2s;
 
+  &:disabled {
+    background-color: $color-american-river;
+    pointer-events: none;
+  }
+
   &:hover {
     border-color: rgba(255, 255, 255, 1);
   }
