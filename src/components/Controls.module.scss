@@ -1,0 +1,76 @@
+@import '../sass/abstracts/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .button {
+    box-sizing: border-box;
+    width: 200px;
+    height: 40px;
+    height: fit-content;
+    padding: 1rem;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 1rem;
+    color: whitesmoke;
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background-color: transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-electron-blue;
+    }
+  }
+
+  .select-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-weight: 500;
+      font-size: 1rem;
+      color: whitesmoke;
+      text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .select {
+      appearance: none;
+      border: 0;
+      outline: 0;
+      font: inherit;
+      width: 200px;
+      height: 40px;
+      padding: 0 4em 0 1em;
+      background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
+          no-repeat right 0.8em center / 1.4em,
+        linear-gradient(to left, $glass-icon 3em, $glass 3em);
+      color: whitesmoke;
+      border-radius: 0.25em;
+      box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+
+      option {
+        color: whitesmoke;
+        background-color: $color-electron-blue;
+
+        &:disabled {
+          color: black;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

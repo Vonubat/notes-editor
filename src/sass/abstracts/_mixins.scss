@@ -1,0 +1,9 @@
+@import 'variables';
+
+@mixin for-breakpoint($size) {
+  @if $size == $width-breakpoint-1 {
+    @media only #{$media} and (max-width: $width-breakpoint-1) {
+      @content;
+    }
+  }
+}

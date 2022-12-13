@@ -1,0 +1,45 @@
+@import '../sass/abstracts/variables';
+
+@keyframes scale-up-hor-right {
+  0% {
+    transform: scaleX(0.4);
+    transform-origin: 100% 100%;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 100%;
+  }
+}
+
+.tag {
+  box-sizing: border-box;
+  min-height: 40px;
+  height: fit-content;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  background-color: $color-mint-leaf;
+  animation: scale-up-hor-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+  span {
+    font-weight: 500;
+    font-size: 1rem;
+    color: whitesmoke;
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    text-align: center;
+    text-transform: uppercase;
+    inline-size: 150px;
+    overflow-wrap: break-word;
+  }
+
+  .delete {
+    cursor: pointer;
+  }
+}
+
+.active {
+  background-color: $color-pico-8-pink;
+}
