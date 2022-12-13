@@ -1,10 +1,14 @@
 @import '../sass/abstracts/variables';
 
-.sticky-container {
+.note {
   width: 300px;
   padding: 2rem 1rem 1rem;
   box-sizing: border-box;
   position: relative;
   border-radius: 3px;
   background: $color-bright-yarrow;
+
+  span {
+    white-space: pre-wrap;
+  }
 }
