@@ -12,6 +12,7 @@ export interface ITag {
 export interface IState {
   notes: INote[];
   tags: ITag[];
+  filter: string;
 }
 
 export interface IContextState {
@@ -29,4 +30,5 @@ export type Actions =
   | { type: 'add_tag'; payload: ITag }
   | { type: 'delete_tag'; payload: ITag['id'] }
   | { type: 'activate_tag'; payload: ITag['text'] }
-  | { type: 'reset_tags'; payload: ITag['text'] };
+  | { type: 'reset_tags'; payload: ITag['text'] }
+  | { type: 'set_filter'; payload: ITag['text'] };

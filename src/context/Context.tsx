@@ -26,6 +26,7 @@ export const useContextUpdater = (): IContextUpdater => {
 const initialValue: IState = {
   notes: [],
   tags: [],
+  filter: '',
 };
 
 const stateReducer = (state: IState, { type, payload }: Actions): IState => {
@@ -88,6 +89,12 @@ const stateReducer = (state: IState, { type, payload }: Actions): IState => {
             return tag;
           }),
         ],
+      };
+
+    case 'set_filter':
+      return {
+        ...state,
+        filter: payload,
       };
 
     default:
