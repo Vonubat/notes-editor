@@ -24,16 +24,26 @@ export const Note = ({ text, id }: MyProps): JSX.Element => {
 
   const handleEdit = (): void => {
     setEditMode(true);
+    const tags: string[] = getTags(value);
+
+    if (tags.length) {
+      tags.map((tag) => dispatch({ type: 'activate_tag', payload: tag }));
+    }
   };
 
   const handleUpdate = (): void => {
     setEditMode(false);
+    const tags: string[] = getTags(value);
+
+    if (tags.length) {
+      tags.map((tag) => dispatch({ type: 'reset_tags', payload: tag }));
+    }
 
     if (value !== text) {
-      const tags: string[] = getTags(value);
-
       if (tags.length) {
-        tags.map((tag) => dispatch({ type: 'add_tag', payload: { text: tag, id: uniqueID() } }));
+        tags.map((tag) =>
+          dispatch({ type: 'add_tag', payload: { text: tag, id: uniqueID(), active: false } })
+        );
       }
 
       dispatch({ type: 'update_note', payload: { text: value, id } });

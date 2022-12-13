@@ -65,6 +65,31 @@ const stateReducer = (state: IState, { type, payload }: Actions): IState => {
         tags: [...state.tags.filter((tag) => tag.id !== payload)],
       };
 
+    case 'activate_tag':
+      return {
+        ...state,
+        tags: [
+          ...state.tags.map((tag) => {
+            if (tag.text === payload) {
+              return { ...tag, active: true };
+            } else {
+              return tag;
+            }
+          }),
+        ],
+      };
+
+    case 'reset_tags':
+      return {
+        ...state,
+        tags: [
+          ...state.tags.map((tag) => {
+            tag.active = false;
+            return tag;
+          }),
+        ],
+      };
+
     default:
       throw new Error(`Unknown action type`);
   }

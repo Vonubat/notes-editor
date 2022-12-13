@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContextState } from 'context/Context';
-import { IData } from 'types';
+import { INote } from 'types';
 import { Note } from './';
 import styles from './NoteList.module.scss';
 
@@ -10,7 +10,7 @@ export const NoteList = (): JSX.Element => {
   return (
     <div className={styles['note-list']}>
       {notes.map(
-        ({ text, id }: IData): JSX.Element => (
+        ({ text, id }: INote): JSX.Element => (
           <Note key={String(id)} id={id} text={text} />
         )
       )}

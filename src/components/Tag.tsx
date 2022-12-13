@@ -6,9 +6,10 @@ import styles from './Tag.module.scss';
 interface MyProps {
   id: number;
   text: string;
+  active: boolean;
 }
 
-export const Tag = ({ text, id }: MyProps): JSX.Element => {
+export const Tag = ({ text, id, active }: MyProps): JSX.Element => {
   const { dispatch } = useContextUpdater();
 
   const handleDelete = (): void => {
@@ -16,7 +17,7 @@ export const Tag = ({ text, id }: MyProps): JSX.Element => {
   };
 
   return (
-    <div className={styles.tag}>
+    <div className={active ? `${styles.tag} ${styles.active}` : `${styles.tag}`}>
       <span>{text}</span>
       <img src={DeleteIcon} alt="Delete" onClick={handleDelete} className={styles.delete} />
     </div>

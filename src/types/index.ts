@@ -1,11 +1,17 @@
-export interface IData {
+export interface INote {
   text: string;
   id: number;
 }
 
+export interface ITag {
+  text: string;
+  id: number;
+  active: boolean;
+}
+
 export interface IState {
-  notes: IData[];
-  tags: IData[];
+  notes: INote[];
+  tags: ITag[];
 }
 
 export interface IContextState {
@@ -17,8 +23,10 @@ export interface IContextUpdater {
 }
 
 export type Actions =
-  | { type: 'create_note'; payload: IData }
-  | { type: 'update_note'; payload: IData }
-  | { type: 'delete_note'; payload: IData['id'] }
-  | { type: 'add_tag'; payload: IData }
-  | { type: 'delete_tag'; payload: IData['id'] };
+  | { type: 'create_note'; payload: INote }
+  | { type: 'update_note'; payload: INote }
+  | { type: 'delete_note'; payload: INote['id'] }
+  | { type: 'add_tag'; payload: ITag }
+  | { type: 'delete_tag'; payload: ITag['id'] }
+  | { type: 'activate_tag'; payload: ITag['text'] }
+  | { type: 'reset_tags'; payload: ITag['text'] };
