@@ -16,4 +16,6 @@ export interface IContextUpdater {
   dispatch: React.Dispatch<Actions>;
 }
 
-export type Actions = { type: 'create_note'; payload: IData };
+export type Actions =
+  | { type: 'create_note'; payload: IData }
+  | { type: 'delete_note'; payload: IData['id'] };
