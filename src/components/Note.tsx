@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import DeleteIcon from '../assets/delete.png';
-import { useContextUpdater } from 'context/Context';
+import { useContextState, useContextUpdater } from 'context/Context';
 import { getTags, uniqueID } from 'utils';
 import styles from './Note.module.scss';
 
@@ -12,6 +12,7 @@ interface MyProps {
 export const Note = ({ text, id }: MyProps): JSX.Element => {
   const [value, setValue] = useState<string>(text);
   const [editMode, setEditMode] = useState<boolean>(false);
+  const { filter } = useContextState().state;
   const { dispatch } = useContextUpdater();
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
@@ -50,8 +51,19 @@ export const Note = ({ text, id }: MyProps): JSX.Element => {
     }
   };
 
+  const setStyle = (): string => {
+    const isPassFilter: boolean =
+      filter === '' || filter === 'NONE' || value.toUpperCase().includes(filter);
+
+    if (!isPassFilter) {
+      return styles.hidden;
+    }
+
+    return editMode ? `${styles.note} ${styles.active}` : `${styles.note}`;
+  };
+
   return (
-    <div className={editMode ? `${styles.note} ${styles.active}` : `${styles.note}`}>
+    <div className={setStyle()}>
       <div className={styles['control-container']}>
         <span>{editMode ? 'Edit mode' : 'View mode'}</span>
         <img src={DeleteIcon} alt="Delete" onClick={handleDelete} className={styles.delete} />
