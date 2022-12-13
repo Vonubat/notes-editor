@@ -1,0 +1,10 @@
+@import '../sass/abstracts/variables';
+
+.sticky-container {
+  width: 300px;
+  padding: 2rem 1rem 1rem;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 3px;
+  background: $color-bright-yarrow;
+}
