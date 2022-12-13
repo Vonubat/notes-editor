@@ -1,5 +1,13 @@
+@import '../sass/abstracts/variables';
+@import '../sass/abstracts/mixins';
+
 .main {
   display: flex;
   padding: 2rem;
   gap: 3rem;
+
+  @include for-breakpoint($width-breakpoint-1) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

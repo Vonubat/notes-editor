@@ -1,6 +1,13 @@
+@import '../sass/abstracts/variables';
+@import '../sass/abstracts/mixins';
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 1rem;
+
+  @include for-breakpoint($width-breakpoint-1) {
+    justify-content: center;
+  }
 }

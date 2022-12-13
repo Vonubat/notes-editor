@@ -21,17 +21,17 @@ export const Controls = (): JSX.Element => {
         <span>+ Create note</span>
       </button>
 
-      <select value={filter} onChange={handleChange} className={styles.select}>
-        <option value="" disabled>
-          Select tag filter
-        </option>
-        <option value="NONE">NONE</option>
-        {tags.map((tag) => (
-          <option key={tag.text} value={tag.text}>
-            {tag.text}
-          </option>
-        ))}
-      </select>
+      <div className={styles['select-container']}>
+        <label htmlFor="tag-filter">Select tag filter</label>
+        <select name="tag-filter" value={filter} onChange={handleChange} className={styles.select}>
+          <option value="NONE">NONE</option>
+          {tags.map((tag) => (
+            <option key={tag.text} value={tag.text}>
+              {tag.text}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

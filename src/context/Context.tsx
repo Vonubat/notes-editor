@@ -26,7 +26,7 @@ export const useContextUpdater = (): IContextUpdater => {
 const initialValue: IState = {
   notes: [],
   tags: [],
-  filter: '',
+  filter: 'NONE',
 };
 
 const stateReducer = (state: IState, { type, payload }: Actions): IState => {
