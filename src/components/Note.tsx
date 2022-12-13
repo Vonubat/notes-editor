@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import DeleteIcon from '../assets/delete.png';
 import { useContextUpdater } from 'context/Context';
+import { getTags } from 'utils';
 import styles from './Note.module.scss';
 
 interface MyProps {
@@ -27,7 +28,14 @@ export const Note = ({ text, id }: MyProps): JSX.Element => {
 
   const handleUpdate = (): void => {
     setEditMode(false);
+
     if (value !== text) {
+      const tags: string[] = getTags(value);
+
+      if (tags.length) {
+        tags.map((tag) => dispatch({ type: 'add_tags', payload: { text: tag, id: Date.now() } }));
+      }
+
       dispatch({ type: 'update_note', payload: { text: value, id } });
     }
   };

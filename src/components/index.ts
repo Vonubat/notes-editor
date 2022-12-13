@@ -3,3 +3,4 @@ export { Background } from './Background';
 export { Note } from './Note';
 export { NoteList } from './NoteList';
 export { Tag } from './Tag';
+export { TagList } from './TagList';

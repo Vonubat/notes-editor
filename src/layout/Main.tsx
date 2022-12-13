@@ -1,4 +1,4 @@
-import { NoteList, Controls } from 'components';
+import { NoteList, Controls, TagList } from 'components';
 import React from 'react';
 import styles from './Main.module.scss';
 
@@ -7,6 +7,7 @@ export const Main = (): JSX.Element => {
     <div className={styles.main}>
       <Controls />
       <NoteList />
+      <TagList />
     </div>
   );
 };
