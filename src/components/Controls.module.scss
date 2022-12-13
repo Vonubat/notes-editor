@@ -1,7 +1,7 @@
 @import '../sass/abstracts/variables';
 
 .button {
-  width: 200px;
+  min-width: 200px;
   min-height: 40px;
   height: fit-content;
   padding: 1rem;

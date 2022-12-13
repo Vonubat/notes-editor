@@ -20,4 +20,5 @@ export type Actions =
   | { type: 'create_note'; payload: IData }
   | { type: 'update_note'; payload: IData }
   | { type: 'delete_note'; payload: IData['id'] }
-  | { type: 'add_tags'; payload: IData };
+  | { type: 'add_tag'; payload: IData }
+  | { type: 'delete_tag'; payload: IData['id'] };

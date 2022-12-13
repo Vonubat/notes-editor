@@ -48,10 +48,22 @@ const stateReducer = (state: IState, { type, payload }: Actions): IState => {
       };
 
     case 'delete_note':
-      return { ...state, notes: [...state.notes.filter((note) => note.id !== payload)] };
+      return {
+        ...state,
+        notes: [...state.notes.filter((note) => note.id !== payload)],
+      };
 
-    case 'add_tags':
+    case 'add_tag':
+      if (state.tags.find((tag) => tag.text === payload.text)) {
+        return { ...state };
+      }
       return { ...state, tags: [...state.tags, payload] };
+
+    case 'delete_tag':
+      return {
+        ...state,
+        tags: [...state.tags.filter((tag) => tag.id !== payload)],
+      };
 
     default:
       throw new Error(`Unknown action type`);
