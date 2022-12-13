@@ -1,0 +1,25 @@
+@import '../sass/abstracts/variables';
+
+.button {
+  width: 200px;
+  height: 40px;
+  padding: 0.3em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 1rem;
+  color: whitesmoke;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background-color: transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-electron-blue;
+  }
+}

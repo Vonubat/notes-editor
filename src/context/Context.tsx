@@ -35,7 +35,15 @@ const stateReducer = (state: IState, { type, payload }: Actions): IState => {
     case 'update_note':
       return {
         ...state,
-        notes: [...state.notes.filter((note) => note.id !== payload.id), payload],
+        notes: [
+          ...state.notes.map((note) => {
+            if (note.id === payload.id) {
+              return payload;
+            } else {
+              return note;
+            }
+          }),
+        ],
       };
     case 'delete_note':
       return { ...state, notes: [...state.notes.filter((note) => note.id !== payload)] };

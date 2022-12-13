@@ -24,6 +24,25 @@
   border-radius: 3px;
   background: $color-bright-yarrow;
   animation: scale-up-ver-top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  transition: all 0.2s;
+
+  .control-container {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    span {
+      color: $color-electron-blue;
+      font-weight: 700;
+    }
+
+    .delete {
+      cursor: pointer;
+    }
+  }
 
   .textarea {
     width: 100%;
@@ -34,15 +53,6 @@
     resize: none;
     outline: none;
     border: none;
-  }
-
-  .delete {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    display: flex;
-    gap: 1rem;
-    cursor: pointer;
   }
 
   span {

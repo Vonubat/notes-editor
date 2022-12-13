@@ -27,12 +27,18 @@ export const Note = ({ text, id }: MyProps): JSX.Element => {
 
   const handleUpdate = (): void => {
     setEditMode(false);
-    dispatch({ type: 'update_note', payload: { text: value, id } });
+    if (value !== text) {
+      dispatch({ type: 'update_note', payload: { text: value, id } });
+    }
   };
 
   return (
     <div className={editMode ? `${styles.note} ${styles.active}` : `${styles.note}`}>
-      <img src={DeleteIcon} alt="Delete" onClick={handleDelete} className={styles.delete} />
+      <div className={styles['control-container']}>
+        <span>{editMode ? 'Edit mode' : 'View mode'}</span>
+        <img src={DeleteIcon} alt="Delete" onClick={handleDelete} className={styles.delete} />
+      </div>
+
       <textarea
         value={value}
         onChange={handleChange}
