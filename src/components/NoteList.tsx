@@ -11,7 +11,7 @@ export const NoteList = (): JSX.Element => {
     <div className={styles['note-list']}>
       {notes.map(
         ({ text, id }: IData): JSX.Element => (
-          <Note key={String(id)} id={String(id)}>
+          <Note key={String(id)} id={id}>
             {text}
           </Note>
         )

@@ -1,12 +1,31 @@
 @import '../sass/abstracts/variables';
 
 .note {
+  position: relative;
   width: 300px;
-  padding: 2rem 1rem 1rem;
+  padding: 2.5rem 1rem 1rem;
   box-sizing: border-box;
   position: relative;
   border-radius: 3px;
   background: $color-bright-yarrow;
+
+  .controls-container {
+    position: absolute;
+    top: 0.5rem;
+    right: 3rem;
+    display: flex;
+    gap: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+
+    .edit {
+      cursor: pointer;
+    }
+
+    .delete {
+      cursor: pointer;
+    }
+  }
 
   span {
     white-space: pre-wrap;
