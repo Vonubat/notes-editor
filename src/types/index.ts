@@ -18,4 +18,5 @@ export interface IContextUpdater {
 
 export type Actions =
   | { type: 'create_note'; payload: IData }
+  | { type: 'update_note'; payload: IData }
   | { type: 'delete_note'; payload: IData['id'] };
