@@ -70,6 +70,7 @@ export const Note = ({ text, id }: MyProps): JSX.Element => {
       </div>
 
       <textarea
+        placeholder="New note"
         value={value}
         onChange={handleChange}
         onFocus={handleEdit}

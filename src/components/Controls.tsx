@@ -8,7 +8,7 @@ export const Controls = (): JSX.Element => {
   const { dispatch } = useContextUpdater();
 
   const handleClick = (): void => {
-    dispatch({ type: 'create_note', payload: { text: 'New note', id: uniqueID() } });
+    dispatch({ type: 'create_note', payload: { text: '', id: uniqueID() } });
   };
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>): void => {
