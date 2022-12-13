@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import DeleteIcon from '../assets/delete.png';
-import styles from './Note.module.scss';
 import { useContextUpdater } from 'context/Context';
+import styles from './Note.module.scss';
 
 interface MyProps {
   id: number;
